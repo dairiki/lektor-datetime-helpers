@@ -1,0 +1,10 @@
+dist
+build
+.cache
+.coverage
+.tox
+htmlcov
+*.egg-info
+*.pyc
+*.pyo
+*~
