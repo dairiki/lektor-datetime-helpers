@@ -1,6 +1,10 @@
-=================================================
+#################################################
 Helpers for Dealing with ``datetime``\s in Lektor
-=================================================
+#################################################
+
+************
+Introduction
+************
 
 This is a plugin for Lektor which provides some helpers for dealing with
 dates and times.
