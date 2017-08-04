@@ -25,8 +25,13 @@ def _key(dt):
     # ``date``\s sort before naive ``datetime``\s of the same date,
     # which, in turn, sort before aware ``datetime``\s.
     if isinstance(dt, datetime.datetime):
+        if dt.tzinfo is None:
+            tz_key = (0,)
+        else:
+            tz_key = 1, dt.utcoffset()
         return (dt.year, dt.month, dt.day,
-                dt.tzinfo, dt.hour, dt.minute, dt.second, dt.microsecond)
+                tz_key,
+                dt.hour, dt.minute, dt.second, dt.microsecond)
     elif isinstance(dt, datetime.date):
         return dt.year, dt.month, dt.day
     else:
