@@ -13,10 +13,60 @@ localize_datetime(dt)
    If ``dt`` is naive, it is localized to the site's default timezone.
 
 """
+import datetime
+
 from jinja2 import Undefined
 from lektor.pluginsystem import Plugin
 from lektor.types import DateType, DateTimeType
 from tzlocal import get_localzone
+
+
+def _key(dt):
+    # ``date``\s sort before naive ``datetime``\s of the same date,
+    # which, in turn, sort before aware ``datetime``\s.
+    if isinstance(dt, datetime.datetime):
+        return (dt.year, dt.month, dt.day,
+                dt.tzinfo, dt.hour, dt.minute, dt.second, dt.microsecond)
+    elif isinstance(dt, datetime.date):
+        return dt.year, dt.month, dt.day
+    else:
+        raise TypeError("can't compare %s" % type(dt).__name__)
+
+
+class _comparable_mixin(object):
+    def make_cmp_(op):
+        def f(self, other):
+            left = _key(self)
+            right = _key(other)
+            return getattr(left, op)(right)
+        f.__name__ = op
+        return f
+
+    for op_ in '__lt__', '__le__', '__gt__', '__ge__', '__eq__', '__ne__':
+        locals()[op_] = make_cmp_(op_)
+
+    del make_cmp_, op_
+
+
+class comparable_date(_comparable_mixin, datetime.date):
+    """ A ``date`` which is directly comparable to a ``datetime``.
+
+    ``Date``\s sort before all ``datetime``\s with the same or a later
+    date, and after all ``datetime``\s with an earlier date.
+
+    """
+
+
+class comparable_datetime(_comparable_mixin, datetime.datetime):
+    """A ``datetime`` which is directly comparable to a ``date``.
+
+    ``Date``\s sort before all ``datetime``\s with the same or a later
+    date, and after all ``datetime``\s with an earlier date.
+
+    Naive ``datetime``\s sort before timezone-aware ``datetime``\s of
+    the same (or a later) date.
+
+    """
 
 
 class DateOrDateTimeType(DateTimeType, DateType):
@@ -24,8 +74,14 @@ class DateOrDateTimeType(DateTimeType, DateType):
     """
     def value_from_raw(self, raw):
         value = DateTimeType.value_from_raw(self, raw)
-        if isinstance(value, Undefined):
+        if not isinstance(value, Undefined):
+            value = comparable_datetime(value.year, value.month, value.day,
+                                        value.hour, value.minute, value.second,
+                                        value.microsecond, value.tzinfo)
+        else:
             value = DateType.value_from_raw(self, raw)
+            if not isinstance(value, Undefined):
+                value = comparable_date(value.year, value.month, value.day)
         return value
 
 

@@ -18,6 +18,57 @@ def raw_value(value):
     return types.RawValue(name, value, field, pad)
 
 
+class TestComparableDate(object):
+    def make_one(self, year=1970, month=1, day=1):
+        from lektor_datetime_helpers import comparable_date
+        return comparable_date(year, month, day)
+
+    def test_compare_to_date(self):
+        left = self.make_one(1970, 1, 2)
+        assert left == date(1970, 1, 2)
+
+    def test_compare_to_naive_datetime(self):
+        left = self.make_one(1970, 1, 2)
+        assert left < datetime(1970, 1, 2)
+        assert left > datetime(1970, 1, 1, 23, 59, 59)
+
+    def test_compare_to_tzaware_datetime(self):
+        left = self.make_one(1970, 1, 2)
+        assert left < datetime(1970, 1, 2, tzinfo=UTC)
+        assert left > datetime(1970, 1, 1, 23, 59, 59, tzinfo=UTC)
+
+    def test_compare_to_integer(self):
+        left = self.make_one(1970, 1, 2)
+        with pytest.raises(TypeError):
+            left < 0
+
+
+class TestComparableDatetime(object):
+    def make_one(self, year=1970, month=1, day=1,
+                 hour=0, minute=0, second=0, tzinfo=None):
+        from lektor_datetime_helpers import comparable_datetime
+        return comparable_datetime(year, month, day,
+                                   hour, minute, second, tzinfo=tzinfo)
+
+    def test_compare_to_date(self):
+        left = self.make_one(1970, 1, 2)
+        assert left > date(1970, 1, 2)
+        assert left < date(1970, 1, 3)
+
+    def test_compare_to_naive_datetime(self):
+        left = self.make_one(1970, 1, 2)
+        assert left == datetime(1970, 1, 2)
+
+    def test_compare_to_tzaware_datetime(self):
+        left = self.make_one(1970, 1, 2)
+        left < datetime(1970, 1, 2, tzinfo=UTC)
+
+    def test_compare_to_integer(self):
+        left = self.make_one(1970, 1, 2)
+        with pytest.raises(TypeError):
+            left < 0
+
+
 class TestDateOrDateTimeType(object):
     @pytest.fixture
     def type_(self, env):
