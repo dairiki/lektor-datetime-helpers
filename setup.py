@@ -18,7 +18,7 @@ setup(
     author=u'Jeff Dairiki',
     author_email='dairiki@dairiki.org',
     url='https://github.com/dairiki/lektor-datetime-helpers',
-    version='0.2',
+    version='0.3',
     license='BSD',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
