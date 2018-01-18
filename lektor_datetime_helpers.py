@@ -34,6 +34,9 @@ def _key(dt):
                 dt.hour, dt.minute, dt.second, dt.microsecond)
     elif isinstance(dt, datetime.date):
         return dt.year, dt.month, dt.day
+    elif dt is None:
+        mindt = datetime.datetime.min
+        return (mindt.year - 1,)
     else:
         raise TypeError("can't compare %s" % type(dt).__name__)
 

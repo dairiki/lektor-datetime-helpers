@@ -2,6 +2,12 @@
 Changelog
 *********
 
+Release 0.3 (unreleased)
+========================
+
+Fix things so that date and datetime types returned by the ``dateordatetime`` Lektor type are comparable against ``None``.  (``None`` compares less than all other dates and datetimes.)
+
+
 Release 0.2 (2017-08-04)
 ========================
 

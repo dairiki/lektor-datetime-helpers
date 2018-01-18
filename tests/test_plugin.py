@@ -42,6 +42,10 @@ class TestComparableDate(object):
         with pytest.raises(TypeError):
             left < 0
 
+    def test_compare_to_none(self):
+        left = self.make_one(date.min.year, date.min.month, date.min.day)
+        assert left > None
+
 
 class TestComparableDatetime(object):
     def make_one(self, year=1970, month=1, day=1,
@@ -67,6 +71,12 @@ class TestComparableDatetime(object):
         left = self.make_one(1970, 1, 2)
         with pytest.raises(TypeError):
             left < 0
+
+    def test_compare_to_none(self):
+        left = self.make_one(
+            datetime.min.year, datetime.min.month, datetime.min.day,
+            datetime.min.hour, datetime.min.minute, datetime.min.second)
+        assert left > None
 
 
 class TestDateOrDateTimeType(object):
