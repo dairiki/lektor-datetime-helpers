@@ -2,8 +2,11 @@
 Changelog
 *********
 
-Unreleased
-==========
+Release 0.3.1 (2020-05-21)
+==========================
+
+This release freshens the packaging.
+There are no substantive changes to the code in this release.
 
 Packaging
 ---------
