@@ -18,7 +18,7 @@ setup(
     author=u'Jeff Dairiki',
     author_email='dairiki@dairiki.org',
     url='https://github.com/dairiki/lektor-datetime-helpers',
-    version='0.3',
+    version='0.3.1.dev1',
     license='BSD',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -28,6 +28,8 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Topic :: Internet :: WWW/HTTP",
         "Environment :: Console",
         "Environment :: Web Environment",

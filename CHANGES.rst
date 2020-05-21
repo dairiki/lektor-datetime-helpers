@@ -2,6 +2,17 @@
 Changelog
 *********
 
+Unreleased
+==========
+
+Tests
+-----
+
+- Test under python 3.7 and 3.8.
+
+- Use ``twine check`` rather than ``setup.py check`` to test
+  description syntax.
+
 Release 0.3 (2018-01-18)
 ========================
 
