@@ -10,6 +10,8 @@ Packaging
 
 - Update packaging to :PEP:`517`.
 
+- Update LICENSE to latest 3-clause BSD text.
+
 Docstrings
 ----------
 
