@@ -2,7 +2,7 @@
 """Helpers for dealing with datetimes in lektor.
 
 Currently this provides a ``dateordatetime`` model field type which can
-contain either ``date``\s or ``datetime``\s.  Also the following jinja
+contain either ``date``\\s or ``datetime``\\s.  Also the following jinja
 filters are provided:
 
 isoformat(dt)
@@ -59,8 +59,8 @@ class _comparable_mixin(object):
 class comparable_date(_comparable_mixin, datetime.date):
     """ A ``date`` which is directly comparable to a ``datetime``.
 
-    ``Date``\s sort before all ``datetime``\s with the same or a later
-    date, and after all ``datetime``\s with an earlier date.
+    ``Date``\\s sort before all ``datetime``\\s with the same or a later
+    date, and after all ``datetime``\\s with an earlier date.
 
     """
 
@@ -68,10 +68,10 @@ class comparable_date(_comparable_mixin, datetime.date):
 class comparable_datetime(_comparable_mixin, datetime.datetime):
     """A ``datetime`` which is directly comparable to a ``date``.
 
-    ``Date``\s sort before all ``datetime``\s with the same or a later
-    date, and after all ``datetime``\s with an earlier date.
+    ``Date``\\s sort before all ``datetime``\\s with the same or a later
+    date, and after all ``datetime``\\s with an earlier date.
 
-    Naive ``datetime``\s sort before timezone-aware ``datetime``\s of
+    Naive ``datetime``\\s sort before timezone-aware ``datetime``\\s of
     the same (or a later) date.
 
     """

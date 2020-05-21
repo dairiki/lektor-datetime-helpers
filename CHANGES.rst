@@ -5,6 +5,11 @@ Changelog
 Unreleased
 ==========
 
+Docstrings
+----------
+
+- Fix docstring syntax.  No substantive changes.
+
 Tests
 -----
 
