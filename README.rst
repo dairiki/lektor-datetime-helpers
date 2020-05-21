@@ -2,6 +2,22 @@
 Helpers for Dealing with ``datetime``\s in Lektor
 #################################################
 
+.. image:: https://img.shields.io/pypi/v/lektor-datetime-helpers.svg
+   :target: https://pypi.org/project/lektor-datetime-helpers/
+   :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/pyversions/lektor-datetime-helpers.svg
+   :target: https://pypi.python.org/pypi/lektor-datetime-helpers/
+   :alt: PyPI Supported Python Versions
+
+.. image:: https://img.shields.io/github/license/dairiki/lektor-datetime-helpers
+   :target: https://github.com/dairiki/lektor-datetime-helpers/blob/master/LICENSE
+   :alt: GitHub license
+
+.. image:: https://github.com/dairiki/lektor-datetime-helpers/workflows/Tests/badge.svg
+   :target: https://github.com/dairiki/lektor-datetime-helpers
+   :alt: GitHub Actions (Tests)
+
 ************
 Introduction
 ************
