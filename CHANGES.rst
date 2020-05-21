@@ -5,6 +5,11 @@ Changelog
 Unreleased
 ==========
 
+Packaging
+---------
+
+- Update packaging to :PEP:`517`.
+
 Docstrings
 ----------
 
