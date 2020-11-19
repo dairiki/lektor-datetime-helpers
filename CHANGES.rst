@@ -2,6 +2,14 @@
 Changelog
 *********
 
+Next Release
+============
+
+Testing
+-------
+
+- Test under py3.9
+
 Release 0.3.1 (2020-05-21)
 ==========================
 
