@@ -46,6 +46,10 @@ class TestComparableDate(object):
         left = self.make_one(date.min.year, date.min.month, date.min.day)
         assert left > None
 
+    def test_hash(self):
+        dt = self.make_one()
+        assert isinstance(hash(dt), int)
+
 
 class TestComparableDatetime(object):
     def make_one(self, year=1970, month=1, day=1,
@@ -77,6 +81,10 @@ class TestComparableDatetime(object):
             datetime.min.year, datetime.min.month, datetime.min.day,
             datetime.min.hour, datetime.min.minute, datetime.min.second)
         assert left > None
+
+    def test_hash(self):
+        dt = self.make_one()
+        assert isinstance(hash(dt), int)
 
 
 class TestDateOrDateTimeType(object):

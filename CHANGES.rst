@@ -5,6 +5,13 @@ Changelog
 Next Release
 ============
 
+Bugs
+----
+
+- Ensure that ``comparable_date`` and ``comparable_datetime`` objects
+  are hashable.  This fixes issues using these classes with ``pytz``
+  under py3k.
+  
 Testing
 -------
 

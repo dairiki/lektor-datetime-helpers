@@ -55,6 +55,9 @@ class _comparable_mixin(object):
 
     del make_cmp_, op_
 
+    def __hash__(self):
+        return super(_comparable_mixin, self).__hash__()
+
 
 class comparable_date(_comparable_mixin, datetime.date):
     """ A ``date`` which is directly comparable to a ``datetime``.
