@@ -2,11 +2,25 @@
 Changelog
 *********
 
+Release 1.0.0 (unreleased)
+==========================
+
+This release drops support for Python 2 and Python 3.5.
+
+Dependencies
+------------
+
+This package no longer has any external dependencies.  Since python
+3.6, ``datetime.astimezone()`` has the ability to interpret a naïve
+``datetime`` w.r.t. the system local timezone, so the use of
+``tzlocal`` is no longer necessary.
+
 Release 0.3.3.post1 (2021-08-16)
 ================================
 
 - Fix useless comparison in test.
 - Fix formatting in ``CHANGES.rst``.
+
 
 Release 0.3.3 (2021-08-15)
 ==========================

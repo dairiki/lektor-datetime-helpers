@@ -18,7 +18,6 @@ import datetime
 from jinja2 import Undefined
 from lektor.pluginsystem import Plugin
 from lektor.types import DateType, DateTimeType
-from tzlocal import get_localzone
 
 
 def _key(dt):
@@ -102,15 +101,13 @@ class DatetimeHelpersPlugin(Plugin):
 
     def localize_datetime(self, dt):
         if hasattr(dt, 'hour') and not dt.tzinfo:
-            dt = self.default_timezone.localize(dt)
+            dt = dt.astimezone()
         return dt
 
     def isoformat(self, dt):
         return self.localize_datetime(dt).isoformat()
 
     def on_setup_env(self, **extra):
-        self.default_timezone = get_localzone()
-
         self.env.jinja_env.filters.update({
             'localize_datetime': self.localize_datetime,
             'isoformat': self.isoformat,

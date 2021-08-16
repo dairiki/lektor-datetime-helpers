@@ -129,7 +129,7 @@ class TestPlugin(object):
         dt = datetime(2017, 4, 1, 12, 34)
         localized = plugin.localize_datetime(dt)
         assert localized is not dt
-        assert localized == plugin.default_timezone.localize(dt)
+        assert localized == dt.astimezone()
 
     def test_isoformat(self, plugin):
         dt = date(2017, 4, 1)
