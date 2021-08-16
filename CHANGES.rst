@@ -8,7 +8,7 @@ Release 0.3.3 (2021-08-15)
 Bugs
 ----
 
-- Pin `tzlocal<3`.  (`Tzlocal >= 3` drops support for python 2.)
+- Pin ``tzlocal<3``.  (``Tzlocal >= 3`` drops support for python 2.)
 
 Release 0.3.2 (2020-11-19)
 ==========================
