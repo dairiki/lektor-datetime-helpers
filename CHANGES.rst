@@ -2,6 +2,12 @@
 Changelog
 *********
 
+Release 0.3.3.post1 (2021-08-16)
+================================
+
+- Fix useless comparison in test.
+- Fix formatting in ``CHANGES.rst``.
+
 Release 0.3.3 (2021-08-15)
 ==========================
 
