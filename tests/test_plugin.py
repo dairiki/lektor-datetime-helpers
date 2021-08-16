@@ -40,7 +40,7 @@ class TestComparableDate(object):
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
         with pytest.raises(TypeError):
-            left < 0
+            left < 0            # noqa: B015
 
     def test_compare_to_none(self):
         left = self.make_one(date.min.year, date.min.month, date.min.day)
@@ -69,12 +69,12 @@ class TestComparableDatetime(object):
 
     def test_compare_to_tzaware_datetime(self):
         left = self.make_one(1970, 1, 2)
-        left < datetime(1970, 1, 2, tzinfo=UTC)
+        assert left < datetime(1970, 1, 2, tzinfo=UTC)
 
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
         with pytest.raises(TypeError):
-            left < 0
+            left < 0            # noqa: B015
 
     def test_compare_to_none(self):
         left = self.make_one(
