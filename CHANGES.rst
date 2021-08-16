@@ -2,7 +2,7 @@
 Changelog
 *********
 
-Release 1.0.0 (unreleased)
+Release 1.0.0 (2021-08-16)
 ==========================
 
 This release drops support for Python 2 and Python 3.5.
