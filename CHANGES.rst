@@ -2,6 +2,14 @@
 Changelog
 *********
 
+Release 1.0.1 (unreleased)
+==========================
+
+Testing
+-------
+
+- Test under python 3.10, and lektor<3.3
+
 Release 1.0.0 (2021-08-16)
 ==========================
 
