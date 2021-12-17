@@ -1,6 +1,8 @@
 from datetime import date, datetime
 
 from jinja2 import Undefined
+# This is a workaround for lektor/lektor#974 in lektor==3.3
+from lektor import environment  # noqa: F401
 from lektor import types
 import pytest
 from pytz import UTC
