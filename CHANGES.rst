@@ -9,6 +9,7 @@ Packaging
 ---------
 
 - Set ``Requires-Python: >=3.6`` in METADATA
+- Deleted ``setup.py``
 
 Testing
 -------
