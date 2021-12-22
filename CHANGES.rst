@@ -5,6 +5,11 @@ Changelog
 Release 1.0.1 (unreleased)
 ==========================
 
+Packaging
+---------
+
+- Set ``Requires-Python: >=3.6`` in METADATA
+
 Testing
 -------
 
