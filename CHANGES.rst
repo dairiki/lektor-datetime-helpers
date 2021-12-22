@@ -2,7 +2,7 @@
 Changelog
 *********
 
-Release 1.0.1 (unreleased)
+Release 1.0.1 (2021-12-22)
 ==========================
 
 Packaging
@@ -19,10 +19,16 @@ Testing
 
 .. _#974: https://github.com/lektor/lektor/pull/974
 
-Release 1.0.0 (2021-08-16)
-==========================
+Release 1.0.0 (2021-08-16 — yanked)
+===================================
 
 This release drops support for Python 2 and Python 3.5.
+
+This release has been yanked_ from PyPI due to missing
+``Requires-Python`` in METADATA allowing (broken) installation under
+py27.  Use release 1.0.1 instead.
+
+.. _yanked: https://pypi.org/help/#yanked
 
 Dependencies
 ------------
