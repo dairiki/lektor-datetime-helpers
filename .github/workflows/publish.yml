@@ -1,0 +1,20 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+  push:
+    tags: ["test-*"]
+    
+jobs:
+  # Paranoia - assert tests pass
+  tests:
+    uses: ./.github/workflows/tests.yml
+
+  publish:
+    needs: [tests]
+    uses: dairiki/gh-workflows/.github/workflows/publish-to-pypi.yml@v1
+    secrets:
+      TEST_PYPI_API_TOKEN: sekret
+      # PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
