@@ -18,6 +18,10 @@ Helpers for Dealing with ``datetime``\s in Lektor
    :target: https://github.com/dairiki/lektor-datetime-helpers
    :alt: GitHub Actions (Tests)
 
+.. image:: https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/lhavw54lf5qbxkvdoq6l
+   :target: https://trackgit.com
+   :alt: Trackgit Views
+
 ************
 Introduction
 ************
