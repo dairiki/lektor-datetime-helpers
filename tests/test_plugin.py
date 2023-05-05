@@ -1,11 +1,10 @@
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 from jinja2 import Undefined
 # This is a workaround for lektor/lektor#974 in lektor==3.3
 from lektor import environment  # noqa: F401
 from lektor import types
 import pytest
-from pytz import UTC
 
 
 @pytest.fixture
@@ -36,8 +35,8 @@ class TestComparableDate(object):
 
     def test_compare_to_tzaware_datetime(self):
         left = self.make_one(1970, 1, 2)
-        assert left < datetime(1970, 1, 2, tzinfo=UTC)
-        assert left > datetime(1970, 1, 1, 23, 59, 59, tzinfo=UTC)
+        assert left < datetime(1970, 1, 2, tzinfo=timezone.utc)
+        assert left > datetime(1970, 1, 1, 23, 59, 59, tzinfo=timezone.utc)
 
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
@@ -71,7 +70,7 @@ class TestComparableDatetime(object):
 
     def test_compare_to_tzaware_datetime(self):
         left = self.make_one(1970, 1, 2)
-        assert left < datetime(1970, 1, 2, tzinfo=UTC)
+        assert left < datetime(1970, 1, 2, tzinfo=timezone.utc)
 
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
@@ -122,7 +121,7 @@ class TestPlugin(object):
         return DatetimeHelpersPlugin(env, id_)
 
     def test_localize_aware_datetime(self, plugin):
-        dt = datetime(2017, 4, 1, 12, 34, tzinfo=UTC)
+        dt = datetime(2017, 4, 1, 12, 34, tzinfo=timezone.utc)
         localized = plugin.localize_datetime(dt)
         assert localized is dt
 
