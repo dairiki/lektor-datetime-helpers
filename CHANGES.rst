@@ -5,8 +5,8 @@ Changelog
 Release 1.1.0 (unreleased)
 ==========================
 
-- Drop support for python 3.6 and Lektor 3.2.
-- Test under python 3.7–3.11 and Lektor 3.3–3.4.
+- Drop support for python 3.6 & 3.7 and Lektor 3.2.
+- Test under python 3.8–3.13 and Lektor 3.3–3.4.
 
 Release 1.0.1 (2021-12-22)
 ==========================
