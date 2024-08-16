@@ -26,17 +26,27 @@ class TestComparableDate(object):
 
     def test_compare_to_date(self):
         left = self.make_one(1970, 1, 2)
+        assert left <= date(1970, 1, 2)
+        assert left >= date(1970, 1, 2)
         assert left == date(1970, 1, 2)
 
     def test_compare_to_naive_datetime(self):
         left = self.make_one(1970, 1, 2)
         assert left < datetime(1970, 1, 2)
+        assert left <= datetime(1970, 1, 2)
+        assert left != datetime(1970, 1, 2)
         assert left > datetime(1970, 1, 1, 23, 59, 59)
+        assert left >= datetime(1970, 1, 1, 23, 59, 59)
+        assert left != datetime(1970, 1, 1, 23, 59, 59)
 
     def test_compare_to_tzaware_datetime(self):
         left = self.make_one(1970, 1, 2)
         assert left < datetime(1970, 1, 2, tzinfo=timezone.utc)
+        assert left <= datetime(1970, 1, 2, tzinfo=timezone.utc)
+        assert left != datetime(1970, 1, 2, tzinfo=timezone.utc)
         assert left > datetime(1970, 1, 1, 23, 59, 59, tzinfo=timezone.utc)
+        assert left >= datetime(1970, 1, 1, 23, 59, 59, tzinfo=timezone.utc)
+        assert left != datetime(1970, 1, 1, 23, 59, 59, tzinfo=timezone.utc)
 
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
@@ -46,6 +56,8 @@ class TestComparableDate(object):
     def test_compare_to_none(self):
         left = self.make_one(date.min.year, date.min.month, date.min.day)
         assert left > None
+        assert left >= None
+        assert left != None     # noqa: E711
 
     def test_hash(self):
         dt = self.make_one()
@@ -62,15 +74,23 @@ class TestComparableDatetime(object):
     def test_compare_to_date(self):
         left = self.make_one(1970, 1, 2)
         assert left > date(1970, 1, 2)
+        assert left >= date(1970, 1, 2)
+        assert left != date(1970, 1, 2)
         assert left < date(1970, 1, 3)
+        assert left <= date(1970, 1, 3)
+        assert left != date(1970, 1, 3)
 
     def test_compare_to_naive_datetime(self):
         left = self.make_one(1970, 1, 2)
+        assert left >= datetime(1970, 1, 2)
+        assert left <= datetime(1970, 1, 2)
         assert left == datetime(1970, 1, 2)
 
     def test_compare_to_tzaware_datetime(self):
         left = self.make_one(1970, 1, 2)
         assert left < datetime(1970, 1, 2, tzinfo=timezone.utc)
+        assert left <= datetime(1970, 1, 2, tzinfo=timezone.utc)
+        assert left != datetime(1970, 1, 2, tzinfo=timezone.utc)
 
     def test_compare_to_integer(self):
         left = self.make_one(1970, 1, 2)
@@ -82,6 +102,11 @@ class TestComparableDatetime(object):
             datetime.min.year, datetime.min.month, datetime.min.day,
             datetime.min.hour, datetime.min.minute, datetime.min.second)
         assert left > None
+        assert left >= None
+        assert left != None  # noqa: E711
+        assert None < left
+        assert None <= left
+        assert None != left  # noqa: E711
 
     def test_hash(self):
         dt = self.make_one()
