@@ -10,3 +10,7 @@
 *.pyo
 *~
 /.eggs/
+/.pdm-python
+/.pdm.toml
+/.pdm-build/
+

@@ -1,5 +1,48 @@
 [build-system]
-requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4"]
-build-backend = "setuptools.build_meta"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
-[tool.setuptools_scm]
+[project]
+name = "lektor-datetime-helpers"
+description = "Lektor plugin to help with dates and times"
+dynamic = ["version", "readme"]
+keywords = ["lektor", "date", "datetime"]
+authors = [
+    {name = "Jeff Dairiki", email = "dairiki@dairiki.org"}
+]
+license = {text = "BSD"}
+urls.Homepage = "https://github.com/dairiki/lektor-datetime-helpers"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Plugins",
+    "Environment :: Web Environment",
+    "Framework :: Lektor",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+]
+requires-python = ">=3.8"
+
+[tool.pdm.build]
+excludes = ["pdm_build.py"]
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "flake8>=5.0.4",
+    "lektor>=3.4.0b12",
+    "pytest>=8.3.2",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pdm.scripts]
+tests = "pytest --cov=lektor_datetime_helpers --cov-fail-under=100 tests"

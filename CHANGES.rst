@@ -7,7 +7,8 @@ Release 1.1.0 (unreleased)
 
 - Drop support for python 3.6 & 3.7 and Lektor 3.2.
 - Test under python 3.8–3.13 and Lektor 3.3–3.4.
-
+- Build using PDM instead of setuptools.
+  
 Release 1.0.1 (2021-12-22)
 ==========================
 
